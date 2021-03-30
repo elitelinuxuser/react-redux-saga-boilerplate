@@ -1,17 +1,17 @@
 import { injectable } from "inversify";
-import { BooksPublicApi } from "../apis/books";
+import { BooksApi } from "../apis/books";
 
 @injectable()
-class BookService {
+class BooksService {
   // @inject("booksPublicApi")
-  booksPublicApi: BooksPublicApi;
+  booksApi: BooksApi;
   constructor() {
-    this.booksPublicApi = new BooksPublicApi();
+    this.booksApi = new BooksApi();
   }
 
   async getExampleBook() {
     try {
-      const data = await this.booksPublicApi.getExampleBook();
+      const data = await this.booksApi.getExampleBook();
       return data;
     } catch (error) {
       console.log("API call failed", error);
@@ -19,4 +19,4 @@ class BookService {
   }
 }
 
-export default BookService;
+export { BooksService };

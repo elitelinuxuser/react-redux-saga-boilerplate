@@ -6,7 +6,7 @@ declare module "axios" {
 }
 
 abstract class HttpClient {
-  protected readonly instance: AxiosInstance;
+  public readonly instance: AxiosInstance;
 
   public constructor(baseURL: string) {
     this.instance = axios.create({

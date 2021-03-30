@@ -1,11 +1,11 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { useEffect } from "react";
-import BookService from "./services/book.service";
+import { BooksService } from "./services/book.service";
 
 function App() {
   useEffect(() => {
-    const bookService = new BookService();
+    const bookService = new BooksService();
     bookService
       .getExampleBook()
       .then((data) => {
