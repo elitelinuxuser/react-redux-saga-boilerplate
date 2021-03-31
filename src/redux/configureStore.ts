@@ -1,20 +1,14 @@
-import * as localforage from "localforage";
-import {
-  applyMiddleware,
-  compose,
-  createStore,
-  Middleware,
-  Store,
-} from "redux";
+import { applyMiddleware, createStore, Middleware, Store } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createLogger } from "redux-logger";
 import createSagaMiddleware, { Task } from "redux-saga";
-import { PersistConfig, persistReducer, persistStore } from "redux-persist";
+import { persistReducer, persistStore } from "redux-persist";
 
 import rootReducer from "./reducers";
 import rootSaga from "./sagas";
 import { persistConfig } from "../config/persist.config";
 import { Persistor } from "redux-persist/es/types";
+import { IStore } from "./interfaces";
 
 interface IExtendedStore {
   store: Store<Partial<IStore>>;
@@ -33,21 +27,12 @@ export function configureStore(initialState?: Partial<IStore>): IExtendedStore {
     middlewares.push(logger);
   }
 
-  const composeEnhancers =
-    (!isDevEnv &&
-      typeof window === "object" &&
-      typeof window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ === "function" &&
-      window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
-        shouldHotReload: false,
-      })) ||
-    compose;
-
-  const persistedReducer = persistReducer(persistConfig, rootReducer(history));
+  const persistedReducer = persistReducer(persistConfig, rootReducer);
 
   const store = createStore(
     persistedReducer,
     initialState,
-    composeEnhancers(applyMiddleware(...middlewares))
+    composeWithDevTools(applyMiddleware(...middlewares))
   );
 
   const persistor = persistStore(store);
@@ -64,5 +49,3 @@ export function configureStore(initialState?: Partial<IStore>): IExtendedStore {
     runSaga: sagaMiddleware.run(rootSaga),
   };
 }
-
-// if (isDevEnv) middlewares = composeWithDevTools(middlewares);

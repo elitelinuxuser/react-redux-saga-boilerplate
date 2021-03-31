@@ -6,7 +6,7 @@ export interface IAction<P, T = string, M = string> extends Action<T> {
 }
 
 export interface IBaseState {
-  error: string;
+  error?: string;
   loaded: boolean;
   pending: boolean;
 }

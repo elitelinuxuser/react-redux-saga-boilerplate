@@ -1,9 +1,9 @@
 import { PersistConfig } from "redux-persist";
-import * as localforage from 'localforage';
+import * as localforage from "localforage";
 
-export const persistConfig: PersistConfig = {
-    key: 'root',
-    version: 1,
-    storage: localforage,
-    blacklist: []
-}
+export const persistConfig: PersistConfig<any> = {
+  key: "root",
+  version: 1,
+  storage: localforage,
+  blacklist: [],
+};
