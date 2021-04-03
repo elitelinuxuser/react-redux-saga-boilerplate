@@ -31,17 +31,17 @@ export function configureStore(initialState?: Partial<IStore>): IExtendedStore {
 
   const store = createStore(
     persistedReducer,
-    initialState,
+    undefined,
     composeWithDevTools(applyMiddleware(...middlewares))
   );
 
   const persistor = persistStore(store);
 
-  if (isDevEnv && (module as any).hot) {
-    (module as any).hot.accept("./rootReducer", () => {
-      store.replaceReducer(require("./rootReducer").default);
-    });
-  }
+  // if (isDevEnv && (module as any).hot) {
+  //   (module as any).hot.accept("./rootReducer", () => {
+  //     store.replaceReducer(require("./rootReducer").default);
+  //   });
+  // }
 
   return {
     store,

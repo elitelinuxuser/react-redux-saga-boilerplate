@@ -1,5 +1,5 @@
 import { ActionType, getType } from "typesafe-actions";
-import * as booksActions from "../actions/books";
+import * as booksActions from "../actions/books.action";
 import { IBooksState } from "../interfaces";
 
 const initialState: IBooksState = {

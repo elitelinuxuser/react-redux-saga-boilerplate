@@ -1,4 +1,4 @@
-import { createAsyncActions } from "../base.action";
+import { createAsyncActions } from "./base.action";
 
 export const fetchExampleBook = createAsyncActions(
   "BOOKS/FETCH_EXAMPLE_BOOK",

@@ -9,7 +9,7 @@ import {
 } from "redux-saga/effects";
 import { getType } from "typesafe-actions";
 import { BooksService } from "../../services/book.service";
-import { fetchExampleBook } from "../actions/books";
+import { fetchExampleBook } from "../actions/books.action";
 import { BaseSaga } from "./base.saga";
 
 export class BooksSaga extends BaseSaga {
