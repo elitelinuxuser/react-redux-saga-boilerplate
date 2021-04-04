@@ -36,7 +36,7 @@ export const ContainerProvider: React.FC<ContainerProviderProps> = ({
 /**
  * Defines the hook used to resolve a dependency in a component.
  */
-export function useInjection<T>(
+export default function useInjection<T>(
   identifier: interfaces.ServiceIdentifier<T>
 ): T {
   const { container } = useContext(InversifyContext);

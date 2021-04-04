@@ -10,9 +10,10 @@ import {
   takeLatest,
 } from "redux-saga/effects";
 import { getType } from "typesafe-actions";
-import { AuthService } from "../../services/auth.service";
-import { serviceTypes } from "../../services/service.types";
-import { login } from "../actions/auth.action";
+
+import { AuthService } from "../../../services";
+import { serviceTypes } from "../../types";
+import { authActions } from "../actions";
 import { BaseSaga } from "./base.saga";
 
 @injectable()
@@ -25,19 +26,19 @@ export class AuthSaga extends BaseSaga {
 
   @autobind
   public *login(
-    action: ReturnType<typeof login.invoke>
+    action: ReturnType<typeof authActions.login.invoke>
   ): IterableIterator<CallEffect | PutEffect<any>> {
     try {
-      yield put(login.setPending(null));
+      yield put(authActions.login.setPending(null));
       const authInfo: any = yield call(this.authService.login, action.payload);
       console.log(authInfo);
-      yield put(login.setFulfilled(authInfo));
+      yield put(authActions.login.setFulfilled(authInfo));
     } catch (error) {
-      yield put(login.setRejected(null, error.toString()));
+      yield put(authActions.login.setRejected(null, error.toString()));
     }
   }
 
   protected *registerListeners(): IterableIterator<ForkEffect> {
-    yield takeLatest(getType(login.invoke), this.login);
+    yield takeLatest(getType(authActions.login.invoke), this.login);
   }
 }

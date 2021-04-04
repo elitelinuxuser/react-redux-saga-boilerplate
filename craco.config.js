@@ -14,10 +14,13 @@ module.exports = {
       options: {
         lessLoaderOptions: {
           lessOptions: {
-            modifyVars: getThemeVariables({
-              dark: true,
-              compact: true,
-            }),
+            modifyVars: {
+              ...getThemeVariables({
+                dark: true,
+                compact: true,
+              }),
+              "@primary-color": "tomato",
+            },
             javascriptEnabled: true,
           },
         },

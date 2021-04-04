@@ -10,7 +10,7 @@ const initialState: IAuthState = {
   pending: false,
 };
 
-export function authReducer(
+export default function authReducer(
   state: IAuthState = initialState,
   action: ActionType<typeof authActions>
 ): IAuthState {

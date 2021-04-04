@@ -1,11 +1,11 @@
 import "./App.less";
 import { useEffect } from "react";
-import { BooksService } from "./services/book.service";
+import { BooksService } from "./services";
 import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import RootRouter from "./routes/root.router";
-import { configureStore } from "./redux/configureStore";
-import { useInjection } from "./dependency_injection/react-binding";
+import { configureStore } from "./shared/redux/configureStore";
+import { useInjection } from "./shared/hooks";
 
 const { store, persistor } = configureStore();
 

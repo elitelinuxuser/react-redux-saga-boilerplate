@@ -1,4 +1,4 @@
-import { ILoginDTO } from "../../containers/LoginPage/interfaces";
+import { ILoginDTO } from "../../../containers/LoginPage/interfaces";
 import { createAsyncActions } from "./base.action";
 
 export const login = createAsyncActions(

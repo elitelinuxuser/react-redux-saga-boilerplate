@@ -3,12 +3,6 @@ import { ILoginDTO } from "../containers/LoginPage/interfaces";
 
 @injectable()
 class AuthService {
-  // @inject("booksPublicApi")
-  //   authApi: AuthApi;
-  // constructor() {
-  //   this.authApi = new AuthApi();
-  // }
-
   async login(loginDTO?: ILoginDTO) {
     console.log("Auth API fired!");
     try {
@@ -24,4 +18,4 @@ class AuthService {
   }
 }
 
-export { AuthService };
+export default AuthService;

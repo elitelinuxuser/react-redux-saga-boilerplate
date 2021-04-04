@@ -1,4 +1,4 @@
-import { IBooksState } from "../interfaces";
+import { IBooksState } from ".";
 import { IAuthState } from "./IAuthState";
 
 export interface IStore {

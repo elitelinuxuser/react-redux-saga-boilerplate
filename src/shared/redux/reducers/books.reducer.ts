@@ -9,7 +9,7 @@ const initialState: IBooksState = {
   pending: false,
 };
 
-export function booksReducer(
+export default function booksReducer(
   state: IBooksState = initialState,
   action: ActionType<typeof booksActions>
 ): IBooksState {

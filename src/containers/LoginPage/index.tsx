@@ -5,13 +5,13 @@ import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 
 import { ILoginDTO } from "./interfaces";
-import * as authActions from "../../redux/actions/auth.action";
+import { authActions } from "../../shared/redux/actions";
+import { IStore } from "../../shared/redux/interfaces";
+import { authSelector } from "../../shared/redux/selectors";
+import { useHistory } from "react-router";
+import { useDocumentTitle } from "../../shared/hooks";
 
 import "./index.scss";
-import { IStore } from "../../redux/interfaces";
-import { authSelector } from "../../redux/selectors/auth.selector";
-import { useHistory } from "react-router";
-import { useDocumentTitle } from "../../hooks";
 
 type IDispatchProps = ReturnType<typeof mapDispatchToProps>;
 type IMapStateProps = ReturnType<typeof mapStateToProps>;
@@ -77,7 +77,6 @@ const LoginPage: React.FC<IProps> = (props: IProps) => {
           >
             Log in
           </Button>
-          Or <a href="">register now!</a>
         </Form.Item>
       </Form>
     </div>

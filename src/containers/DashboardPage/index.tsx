@@ -8,11 +8,16 @@ import {
   MenuFoldOutlined,
 } from "@ant-design/icons";
 
-import "./index.scss";
+import { useDocumentTitle } from "../../shared/hooks";
+
+import "./index.less";
 
 const { Header, Content, Footer, Sider } = Layout;
 
 const DashboardPage: React.FC = () => {
+  const title = "Dashboard Home";
+  useDocumentTitle(title);
+
   const [collapsed, setCollapsed] = useState(false);
 
   const toggle = () => {

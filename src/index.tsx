@@ -4,7 +4,7 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import { ContainerProvider } from "./dependency_injection/react-binding";
+import { ContainerProvider } from "./shared/hooks";
 import { diContainer } from "./config/inversify.config";
 
 ReactDOM.render(

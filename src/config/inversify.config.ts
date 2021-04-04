@@ -1,12 +1,10 @@
 import { Container } from "inversify";
 import { BooksApi } from "../apis/books";
 import { APITypes } from "../apis/types";
-import { AuthSaga } from "../redux/sagas/auth.saga";
-import { BooksSaga } from "../redux/sagas/books.saga";
-import { sagaTypes } from "../redux/sagas/types";
-import { AuthService } from "../services/auth.service";
-import { BooksService } from "../services/book.service";
-import { serviceTypes } from "../services/service.types";
+import { AuthSaga } from "../shared/redux/sagas/auth.saga";
+import { BooksSaga } from "../shared/redux/sagas/books.saga";
+import { sagaTypes, serviceTypes } from "../shared/types";
+import { AuthService, BooksService } from "../services";
 
 const diContainer = new Container();
 

@@ -6,7 +6,7 @@ import { persistReducer, persistStore } from "redux-persist";
 
 import rootReducer from "./reducers";
 import rootSaga from "./sagas";
-import { persistConfig } from "../config/persist.config";
+import { persistConfig } from "../../config/persist.config";
 import { Persistor } from "redux-persist/es/types";
 import { IStore } from "./interfaces";
 

@@ -18,4 +18,4 @@ class BooksService {
   }
 }
 
-export { BooksService };
+export default BooksService;
