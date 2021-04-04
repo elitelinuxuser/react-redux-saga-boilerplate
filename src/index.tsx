@@ -4,10 +4,14 @@ import ReactDOM from "react-dom";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { ContainerProvider } from "./dependency_injection/react-binding";
+import { diContainer } from "./config/inversify.config";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ContainerProvider container={diContainer}>
+      <App />
+    </ContainerProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

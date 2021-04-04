@@ -1,5 +1,6 @@
 // import { boundMethod } from "autobind-decorator";
 import autobind from "autobind-decorator";
+import { inject, injectable } from "inversify";
 import {
   call,
   CallEffect,
@@ -10,14 +11,16 @@ import {
 } from "redux-saga/effects";
 import { getType } from "typesafe-actions";
 import { AuthService } from "../../services/auth.service";
+import { serviceTypes } from "../../services/service.types";
 import { login } from "../actions/auth.action";
 import { BaseSaga } from "./base.saga";
 
+@injectable()
 export class AuthSaga extends BaseSaga {
-  private authService: AuthService;
-  constructor() {
+  constructor(
+    @inject(serviceTypes.AuthService) private authService: AuthService
+  ) {
     super();
-    this.authService = new AuthService();
   }
 
   @autobind

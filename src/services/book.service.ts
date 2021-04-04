@@ -1,13 +1,12 @@
-import { injectable } from "inversify";
+import { inject, injectable } from "inversify";
 import { BooksApi } from "../apis/books";
+import { APITypes } from "../apis/types";
 
 @injectable()
 class BooksService {
   // @inject("booksPublicApi")
-  booksApi: BooksApi;
-  constructor() {
-    this.booksApi = new BooksApi();
-  }
+  // booksApi: BooksApi;
+  constructor(@inject(APITypes.BooksApi) private booksApi: BooksApi) {}
 
   async getExampleBook() {
     try {

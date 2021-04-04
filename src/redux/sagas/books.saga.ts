@@ -1,4 +1,5 @@
 // import { boundMethod } from "autobind-decorator";
+import { inject, injectable } from "inversify";
 import {
   call,
   CallEffect,
@@ -9,14 +10,16 @@ import {
 } from "redux-saga/effects";
 import { getType } from "typesafe-actions";
 import { BooksService } from "../../services/book.service";
+import { serviceTypes } from "../../services/service.types";
 import { fetchExampleBook } from "../actions/books.action";
 import { BaseSaga } from "./base.saga";
 
+@injectable()
 export class BooksSaga extends BaseSaga {
-  private booksService: BooksService;
-  constructor() {
+  constructor(
+    @inject(serviceTypes.BooksService) private booksService: BooksService
+  ) {
     super();
-    this.booksService = new BooksService();
   }
 
   public *fetchExampleBook(): IterableIterator<CallEffect | PutEffect<any>> {

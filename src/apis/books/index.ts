@@ -1,7 +1,9 @@
 import { PublicApi } from "../base/public.api";
 import { ProtectedApi } from "../base/protected.api";
 import { BOOKS_BASE_URL } from "./constants";
+import { injectable } from "inversify";
 
+@injectable()
 class BooksApi {
   private publicApi: PublicApi;
   private protectedApi: ProtectedApi;

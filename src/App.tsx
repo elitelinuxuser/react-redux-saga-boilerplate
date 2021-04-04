@@ -5,12 +5,13 @@ import { Provider } from "react-redux";
 import { PersistGate } from "redux-persist/integration/react";
 import RootRouter from "./routes/root.router";
 import { configureStore } from "./redux/configureStore";
+import { useInjection } from "./dependency_injection/react-binding";
 
 const { store, persistor } = configureStore();
 
 function App() {
+  const bookService = useInjection(BooksService);
   useEffect(() => {
-    const bookService = new BooksService();
     bookService
       .getExampleBook()
       .then((data) => {

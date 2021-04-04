@@ -5,9 +5,9 @@ import { ILoginDTO } from "../containers/LoginPage/interfaces";
 class AuthService {
   // @inject("booksPublicApi")
   //   authApi: AuthApi;
-  //   constructor() {
-  //     this.authApi = new AuthApi();
-  //   }
+  // constructor() {
+  //   this.authApi = new AuthApi();
+  // }
 
   async login(loginDTO?: ILoginDTO) {
     console.log("Auth API fired!");

@@ -37,12 +37,6 @@ export function configureStore(initialState?: Partial<IStore>): IExtendedStore {
 
   const persistor = persistStore(store);
 
-  // if (isDevEnv && (module as any).hot) {
-  //   (module as any).hot.accept("./rootReducer", () => {
-  //     store.replaceReducer(require("./rootReducer").default);
-  //   });
-  // }
-
   return {
     store,
     persistor,

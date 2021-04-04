@@ -11,6 +11,7 @@ import "./index.scss";
 import { IStore } from "../../redux/interfaces";
 import { authSelector } from "../../redux/selectors/auth.selector";
 import { useHistory } from "react-router";
+import { useDocumentTitle } from "../../hooks";
 
 type IDispatchProps = ReturnType<typeof mapDispatchToProps>;
 type IMapStateProps = ReturnType<typeof mapStateToProps>;
@@ -18,6 +19,9 @@ type IMapStateProps = ReturnType<typeof mapStateToProps>;
 type IProps = IDispatchProps & IMapStateProps;
 
 const LoginPage: React.FC<IProps> = (props: IProps) => {
+  const title = "Login Page";
+  useDocumentTitle(title);
+
   const history = useHistory();
 
   const { isAuthenticated } = props.auth;
